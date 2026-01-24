@@ -193,25 +193,102 @@ body.loading {
     letter-spacing: -0.02em;
 }
 
+/* Hamburger Menu */
+.hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+    transition: all 0.3s ease;
+}
+
+.hamburger-menu span {
+    width: 100%;
+    height: 3px;
+    background: var(--white);
+    border-radius: 3px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+}
+
+.hamburger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+.hamburger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(8px, -8px);
+}
+
 .nav-menu {
     list-style: none;
-    display: none;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    background: linear-gradient(135deg, rgba(45, 10, 78, 0.98), rgba(74, 20, 140, 0.98));
+    backdrop-filter: blur(20px);
+    padding: 5rem 2rem 2rem;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-menu.active {
+    right: 0;
+}
+
+.nav-menu::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: -1;
+}
+
+.nav-menu.active::before {
+    opacity: 1;
+    visibility: visible;
 }
 
 .nav-menu a {
     color: var(--white);
     text-decoration: none;
-    padding: 0.6rem 1.2rem;
+    padding: 1rem 1.2rem;
     border-radius: 12px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 1rem;
+    display: block;
+    text-align: right;
 }
 
 .nav-menu a:hover,
 .nav-menu a.active {
     background: linear-gradient(135deg, rgba(123, 44, 191, 0.8), rgba(106, 27, 154, 0.8));
-    transform: translateY(-2px);
+    transform: translateX(-5px);
     box-shadow: var(--shadow-md);
 }
 
@@ -287,6 +364,15 @@ body.loading {
     
     .navbar .logo h1 {
         font-size: 1.5rem;
+    }
+    
+    .hamburger-menu {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .nav-menu {
+        width: 260px;
     }
     
     /* Main Content */

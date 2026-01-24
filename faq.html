@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الأسئلة الشائعة - تحليل الصوت</title>
+    <title>الأسئلة الشائعة - برنامج تحليل الصوت</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
@@ -20,7 +20,7 @@
                 <div class="wave-bar"></div>
                 <div class="wave-bar"></div>
             </div>
-            <div class="loader-text">تحليل الصوت</div>
+            <div class="loader-text">برنامج تحليل الصوت</div>
         </div>
     </div>
 
@@ -29,9 +29,22 @@
             <a href="index.html" class="logo-link">
                 <div class="logo">
                     <img src="logo.png" alt="شعار تحليل الصوت" onerror="this.style.display='none'">
-                    <h1>تحليل الصوت</h1>
+                    <h1>برنامج تحليل الصوت</h1>
                 </div>
             </a>
+            <button class="hamburger-menu" id="hamburgerMenu" aria-label="القائمة">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="faq.html" class="active">الأسئلة الشائعة</a></li>
+                <li><a href="about.html">من نحن</a></li>
+                <li><a href="contact.html">تواصل معنا</a></li>
+                <li><a href="support.html">الدعم الفني</a></li>
+                <li><a href="subscription.html">الاشتراك</a></li>
+            </ul>
         </nav>
     </header>
 
@@ -83,8 +96,34 @@
     </footer>
 
     <script>
-        // Hide page loader after 1.5 seconds
+        // Setup hamburger menu
         document.addEventListener('DOMContentLoaded', () => {
+            const hamburgerMenu = document.getElementById('hamburgerMenu');
+            const navMenu = document.getElementById('navMenu');
+            
+            if (hamburgerMenu && navMenu) {
+                hamburgerMenu.addEventListener('click', () => {
+                    hamburgerMenu.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                });
+                
+                const navLinks = navMenu.querySelectorAll('a');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        hamburgerMenu.classList.remove('active');
+                        navMenu.classList.remove('active');
+                    });
+                });
+                
+                document.addEventListener('click', (e) => {
+                    if (!hamburgerMenu.contains(e.target) && !navMenu.contains(e.target)) {
+                        hamburgerMenu.classList.remove('active');
+                        navMenu.classList.remove('active');
+                    }
+                });
+            }
+            
+            // Hide page loader after 1.5 seconds
             const loader = document.getElementById('pageLoader');
             const body = document.body;
             

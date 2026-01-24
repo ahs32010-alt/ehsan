@@ -1040,6 +1040,23 @@ footer p {
     }
 }
 
+/* Contact Links */
+a[href^="mailto:"],
+a[href^="https://wa.me/"] {
+    color: #e0b0ff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    border-bottom: 1px solid transparent;
+}
+
+a[href^="mailto:"]:hover,
+a[href^="https://wa.me/"]:hover {
+    color: #ffffff;
+    border-bottom-color: #e0b0ff;
+    transform: translateY(-1px);
+}
+
 /* Smooth scrolling */
 html {
     scroll-behavior: smooth;

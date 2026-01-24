@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تحليل الصوت - Voice Analysis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo-link">
+                <div class="logo">
+                    <img src="logo.png" alt="شعار تحليل الصوت" onerror="this.style.display='none'">
+                    <h1>تحليل الصوت</h1>
+                </div>
+            </a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section class="hero-section">
+            <h2 class="hero-title">تحليل المشاعر من الصوت</h2>
+            <p class="hero-subtitle">اختر صوتاً من القائمة واحصل على تحليل فوري لحالته الشعورية</p>
+        </section>
+
+        <section class="recording-section">
+            <div class="recording-container">
+                <div class="recorder-box">
+                    <h3 style="text-align: center; margin-bottom: 2rem; font-size: 1.5rem;">اختر صوتاً للتحليل</h3>
+                    
+                    <div class="form-group" style="margin-bottom: 2rem;">
+                        <label for="audioSelect" style="display: block; margin-bottom: 1rem; font-size: 1.1rem; text-align: center;">اختر الصوت:</label>
+                        <select id="audioSelect" class="audio-dropdown">
+                            <option value="">-- اختر صوتاً --</option>
+                            <option value="neutral" data-file="audio1.mp3">صوت 1</option>
+                            <option value="happy" data-file="audio2.mp3">صوت 2</option>
+                            <option value="laughing" data-file="audio3.mp3">صوت 3</option>
+                            <option value="sad" data-file="audio4.mp3">صوت 4</option>
+                            <option value="depressed" data-file="audio5.mp3">صوت 5</option>
+                            <option value="angry" data-file="audio6.mp3">صوت 6</option>
+                        </select>
+                    </div>
+
+                    <div class="audio-player" id="audioPlayer" style="display: none; margin-top: 2rem;">
+                        <audio id="audioElement" controls style="width: 100%;"></audio>
+                    </div>
+                </div>
+
+                <div class="analysis-box">
+                    <h3>نتائج التحليل</h3>
+                    <div class="analysis-result" id="analysisResult">
+                        <div class="result-placeholder">
+                            <p>اختر صوتاً من القائمة لعرض تحليل المشاعر</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="emotions-section">
+            <h3>المشاعر المدعومة</h3>
+            <div class="emotions-grid">
+                <div class="emotion-card">
+                    <span class="emotion-icon">😐</span>
+                    <span class="emotion-name">محايد</span>
+                </div>
+                <div class="emotion-card">
+                    <span class="emotion-icon">😊</span>
+                    <span class="emotion-name">سعيد</span>
+                </div>
+                <div class="emotion-card">
+                    <span class="emotion-icon">😂</span>
+                    <span class="emotion-name">ضاحك</span>
+                </div>
+                <div class="emotion-card">
+                    <span class="emotion-icon">😢</span>
+                    <span class="emotion-name">حزين</span>
+                </div>
+                <div class="emotion-card">
+                    <span class="emotion-icon">😔</span>
+                    <span class="emotion-name">مكتئب</span>
+                </div>
+                <div class="emotion-card">
+                    <span class="emotion-icon">😠</span>
+                    <span class="emotion-name">غاضب</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <nav class="footer-nav">
+            <ul>
+                <li><a href="index.html" class="active">الرئيسية</a></li>
+                <li><a href="faq.html">الأسئلة الشائعة</a></li>
+                <li><a href="about.html">من نحن</a></li>
+                <li><a href="contact.html">تواصل معنا</a></li>
+                <li><a href="support.html">الدعم الفني</a></li>
+                <li><a href="subscription.html">الاشتراك</a></li>
+            </ul>
+        </nav>
+        <p>&copy; 2025 تحليل الصوت. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

@@ -61,6 +61,46 @@
             </div>
         </section>
 
+        <section class="record-yourself-section">
+            <div class="record-yourself-box">
+                <h3 class="record-yourself-title">سجل صوتك</h3>
+                <p class="experimental-note">⚠️ ميزة تجريبية</p>
+                
+                <div class="record-controls-simple">
+                    <button id="recordSelfBtn" class="record-self-btn">
+                        <span class="record-icon">🎙️</span>
+                        <span>ابدأ التسجيل</span>
+                    </button>
+                    <button id="stopSelfBtn" class="stop-self-btn" disabled>
+                        <span class="stop-icon">⏹️</span>
+                        <span>إيقاف</span>
+                    </button>
+                </div>
+
+                <div class="waveform-container-simple" id="waveformContainerSimple" style="display: none;">
+                    <canvas id="waveformCanvasSimple"></canvas>
+                </div>
+
+                <div class="record-status-simple" id="recordStatusSimple">
+                    <p>جاهز للتسجيل</p>
+                </div>
+
+                <div class="record-result-simple" id="recordResultSimple" style="display: none;">
+                    <div class="simple-emotion-result">
+                        <div class="simple-emotion-header">
+                            <span class="simple-emotion-icon" id="simpleEmotionIcon"></span>
+                            <div class="simple-emotion-name" id="simpleEmotionName"></div>
+                            <div class="simple-emotion-english" id="simpleEmotionEnglish"></div>
+                        </div>
+                        <div class="simple-emotion-details">
+                            <h4 class="simple-details-title">تفاصيل النبرة:</h4>
+                            <div class="simple-details-list" id="simpleDetailsList"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="emotions-section">
             <h3>المشاعر المدعومة</h3>
             <div class="emotions-grid">

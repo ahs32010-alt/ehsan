@@ -94,7 +94,26 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeCanvas();
     initializeSelfCanvas();
     setupEventListeners();
+    hidePageLoader();
 });
+
+// Hide page loader after 1.5 seconds
+function hidePageLoader() {
+    const loader = document.getElementById('pageLoader');
+    const body = document.body;
+    
+    if (loader) {
+        body.classList.add('loading');
+        
+        setTimeout(() => {
+            loader.classList.add('hidden');
+            setTimeout(() => {
+                loader.style.display = 'none';
+                body.classList.remove('loading');
+            }, 500);
+        }, 1500);
+    }
+}
 
 function initializeCanvas() {
     canvas = document.getElementById('waveformCanvas');

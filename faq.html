@@ -10,6 +10,20 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-content">
+            <div class="sound-wave">
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+            </div>
+            <div class="loader-text">تحليل الصوت</div>
+        </div>
+    </div>
+
     <header>
         <nav class="navbar">
             <a href="index.html" class="logo-link">
@@ -67,6 +81,26 @@
         </nav>
         <p>&copy; 2025 جميع الحقوق محفوظة لصالح مدارس الإحسان.</p>
     </footer>
+
+    <script>
+        // Hide page loader after 1.5 seconds
+        document.addEventListener('DOMContentLoaded', () => {
+            const loader = document.getElementById('pageLoader');
+            const body = document.body;
+            
+            if (loader) {
+                body.classList.add('loading');
+                
+                setTimeout(() => {
+                    loader.classList.add('hidden');
+                    setTimeout(() => {
+                        loader.style.display = 'none';
+                        body.classList.remove('loading');
+                    }, 500);
+                }, 1500);
+            }
+        });
+    </script>
 </body>
 </html>
 

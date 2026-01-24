@@ -28,6 +28,113 @@ body {
     line-height: 1.7;
     font-weight: 400;
     letter-spacing: 0.01em;
+    overflow-x: hidden;
+}
+
+body.loading {
+    overflow: hidden;
+}
+
+/* Page Loader */
+.page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(26, 10, 46, 0.95), rgba(45, 10, 78, 0.95), rgba(74, 20, 140, 0.95));
+    backdrop-filter: blur(20px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+}
+
+.page-loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.sound-wave {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    height: 80px;
+}
+
+.wave-bar {
+    width: 8px;
+    height: 40px;
+    background: linear-gradient(180deg, #ffffff, #e0b0ff, #9d4edd);
+    border-radius: 4px;
+    animation: waveAnimation 1.2s ease-in-out infinite;
+    transform-origin: center;
+}
+
+.wave-bar:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.wave-bar:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.wave-bar:nth-child(3) {
+    animation-delay: 0.2s;
+    height: 60px;
+}
+
+.wave-bar:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.wave-bar:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
+@keyframes waveAnimation {
+    0%, 100% {
+        transform: scaleY(0.4);
+        opacity: 0.7;
+    }
+    50% {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+}
+
+.loader-text {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.05em;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(135deg, #ffffff, #e0b0ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: pulseText 1.5s ease-in-out infinite;
+}
+
+@keyframes pulseText {
+    0%, 100% {
+        opacity: 0.8;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
 }
 
 /* Navigation */

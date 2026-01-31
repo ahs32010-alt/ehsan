@@ -15,7 +15,8 @@ const audioFiles = {
     'laughing': { file: 'audio/audio3.mp3', name: 'ضاحك', icon: '😂' },
     'sad': { file: 'audio/audio4.mp3', name: 'حزين', icon: '😢' },
     'depressed': { file: 'audio/audio5.mp3', name: 'مكتئب', icon: '😔' },
-    'angry': { file: 'audio/audio6.mp3', name: 'غاضب', icon: '😠' }
+    'angry': { file: 'audio/audio6.mp3', name: 'غاضب', icon: '😠' },
+    'maram': { file: 'audio/audio7.mp3', name: 'أحلى أستاذة أستاذة مرام', icon: '♥️' }
 };
 
 let currentEmotion = null;
@@ -276,8 +277,39 @@ function generateEmotionAnalysis(primaryEmotion) {
     };
 }
 
+// Special message for صوت 7 - أستاذة مرام
+const maramMessage = [
+    'يامن منحتِ لنا العلوم مرامًا وبنيت في أرواحنا آحلاما',
+    'هذا هو العام الأخير وحبنا باق وإن لم نلتقي أعواما',
+    'أثر عظيمًا قد تركتِ بدربنا فلكِ المحبة والسلام ختاما',
+    'اشتقنا لك مرة واحنا ما بعد تخرجنا، وجودك يفرق وكلامك دايم يفرح القلب.',
+    'والله أسعدتينا وما قصرتي معنا أبدًا، وكل شي منك له طعم غير.',
+    'نحبك ونحب روحك الحلوة، وندعي الله دايم ما يحرمنا منك ولا من هالطلة الحلوة ♥️'
+];
+
 function displayEmotionResult(emotionData) {
     const resultDiv = document.getElementById('analysisResult');
+    
+    // Special display for صوت 7 - أستاذة مرام
+    if (emotionData.primary === 'maram') {
+        const audioInfo = audioFiles.maram;
+        let html = `
+            <div class="emotion-result maram-result">
+                <div class="emotion-header">
+                    <span class="emotion-icon-large">${audioInfo.icon}</span>
+                    <div class="emotion-name-large">${audioInfo.name}</div>
+                </div>
+                <div class="emotion-details">
+                    <div class="details-list maram-details">
+                        ${maramMessage.map(text => `<p class="detail-item">${text}</p>`).join('')}
+                    </div>
+                </div>
+            </div>
+        `;
+        resultDiv.innerHTML = html;
+        return;
+    }
+    
     const emotion = emotionMap[emotionData.primary];
     
     // Display emotion result with tone details

@@ -725,6 +725,18 @@ body.loading {
     gap: 1rem;
 }
 
+/* Maram special result */
+.emotion-result.maram-result .emotion-name-large {
+    font-size: 1.8rem;
+    line-height: 1.4;
+}
+
+.emotion-result.maram-result .maram-details .detail-item {
+    text-align: center;
+    font-size: 1.05rem;
+    line-height: 2;
+}
+
 .detail-item {
     font-size: 1rem;
     line-height: 1.8;

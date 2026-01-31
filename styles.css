@@ -1434,6 +1434,95 @@ footer p {
 }
 
 /* Team Section */
+/* Supervisor Section - مشرفة المشروع */
+.supervisor-section {
+    margin-bottom: 2.5rem;
+    text-align: center;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.supervisor-badge {
+    display: inline-block;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #e0b0ff;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+    padding: 0.4rem 1.2rem;
+    background: rgba(224, 176, 255, 0.15);
+    border-radius: 20px;
+    border: 1px solid rgba(224, 176, 255, 0.4);
+}
+
+.supervisor-card {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1.5rem 2.5rem;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(224, 176, 255, 0.15));
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(157, 78, 221, 0.3);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.supervisor-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(157, 78, 221, 0.4);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.supervisor-icon {
+    font-size: 3rem;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.08); opacity: 0.9; }
+}
+
+.supervisor-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: -0.01em;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #ffffff, #e0b0ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+@media (max-width: 768px) {
+    .supervisor-card {
+        flex-direction: column;
+        padding: 1.5rem 2rem;
+        gap: 1rem;
+    }
+    
+    .supervisor-name {
+        font-size: 1.5rem;
+    }
+    
+    .supervisor-icon {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .supervisor-badge {
+        font-size: 0.85rem;
+        padding: 0.35rem 1rem;
+    }
+    
+    .supervisor-name {
+        font-size: 1.3rem;
+    }
+}
+
 .team-section {
     margin-bottom: 2.5rem;
     padding: 2rem;
